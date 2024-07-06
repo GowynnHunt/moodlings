@@ -1,7 +1,9 @@
 :root {
-  --background: #fdd7f6;
-  --heading: #d16bc5;
-  --text: #51424e;
+  --light-pink: #fdd7f6;
+  --dark-pink: #d16bc5;
+  --brown: #51424e;
+  --lemon: #fbf4d7;
+  --light-blue: #79f0ff;
 }
 * {
   margin: 0;
@@ -19,14 +21,24 @@
     "Helvetica Neue",
     sans-serif;
 }
+html {
+  padding: 1em;
+}
 
 body {
-  background-color: var(--background);
+  background-color: var(--light-pink);
   color: var(--brown);
 }
 
+h1,
+h2 {
+  text-decoration-line: underline;
+  text-shadow: 2px 1px 1px rgba(0, 0, 0, 1);
+  color: var(--dark-pink);
+}
+
 body > .container {
-  margin: 1em;
+  margin-bottom: 1em;
 }
 
 .container {
@@ -35,9 +47,63 @@ body > .container {
   flex-basis: auto;
 }
 
-h1,
-h2 {
-  text-decoration-line: underline;
-  text-shadow: 2px 1px 1px rgba(0, 0, 0, 1);
-  color: var(--heading);
+.btn-container {
+  display: flex;
+  justify-content: center;
+}
+
+.modal {
+  display: none; /* Hidden by default */
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.8); /* Black w/ opacity */
+}
+
+.modal-content {
+  background-color: var(--light-blue);
+  border-radius: 1em 1em 0 0;
+  border: 4px solid var(--lemon);
+  padding: 1em;
+  width: 90vw;
+  max-height: 90vh;
+  overflow: auto;
+  box-shadow:
+    0 4px 8px 0 rgba(0, 0, 0, 1),
+    0 6px 20px 0 rgba(0, 0, 0, 0.8);
+}
+
+.modal-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.modal-close {
+  font-size: 32px;
+  padding: 0;
+  border-color: transparent;
+  background-color: transparent;
+  color: var(--brown);
+  align-self: flex-end;
+}
+
+.quiz p {
+  margin: 0.5em;
+}
+
+#corgi-btn {
+  background-color: #fbf4d7;
+  border-color: var(--dark-pink);
+  flex: initial;
+  width: fit-content;
+  border-radius: 1em;
 }

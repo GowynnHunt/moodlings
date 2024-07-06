@@ -37,13 +37,83 @@
         below...
       </p>
 
-      <img
-        id="corgi-btn"
-        src="images/set-handdrawn-corgis-with-ball-dog-food-candy.png"
-        alt="Corgi Butt Button"
-        width="160"
-        height="160"
-      />
+      <div class="btn-container">
+        <button id="corgi-btn" type="button">
+          <img
+            src="images/set-handdrawn-corgis-with-ball-dog-food-candy.png"
+            alt="Corgi Butt Button"
+            width="80"
+            height="80"
+          />
+        </button>
+      </div>
+    </div>
+
+    <div class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1>The Quiz!</h1>
+          <button class="modal-close">&times;</button>
+        </div>
+
+        <div class="modal-body">
+          <div class="quiz">
+            <p>1. Choose your ideal vacation locale.</p>
+            <form>
+              <input
+                type="radio"
+                id="sunny-town"
+                name="vacation"
+                value="sunny-rainy"
+              />
+              <label for="sunny-town"
+                >A warm, sunny town with lots of charm and local residents.
+                There's currently a festival taking place, and you get to
+                experience the small town way of life for a while.</label
+              ><br />
+              <input
+                type="radio"
+                id="secluded-cabin"
+                name="vacation"
+                value="charlie-george"
+              />
+              <label for="secluded-cabin"
+                >A secluded cabin in the woods that has lots of land to roam,
+                fish, and hunt on for you to enjoy nature to its fullest
+                extent.</label
+              ><br />
+              <input
+                type="radio"
+                id="home"
+                name="vacation"
+                value="maisie-odin"
+              />
+              <label for="home"
+                >You already have the perfect vacation location, called home, a
+                safe place where you won't encounter any new surprises that may
+                startle you.</label
+              ><br />
+            </form>
+
+            <p>
+              2.If a stranger came up to you in a grocery store and asked for
+              help reaching an item on the top shelf, how would you respond?
+            </p>
+            <form>
+              <input
+                type="radio"
+                id="kind"
+                name="strange"
+                value="sunny-charlie"
+              />
+              <label for="kind"
+                >Kindly agree to help the stranger and enthusiastically get the
+                item down for them without a second thought.</label
+              ><br />
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
   </body>
 </html>
