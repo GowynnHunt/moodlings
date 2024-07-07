@@ -65,10 +65,20 @@ export const quizQuestions = [
     question:
       "You find yourself wanting to adopt another pet. How would you go about this process?",
     answers: [
-      "Go to a local pet adoption agency and find the friendliest animal they have and bring it home with me.",
+      "Go to a local pet adoption agency and find the friendliest animal they have and bring it home with you.",
       "Go into the local forest and come back with whatever animal has decided to bond with you that you didn’t hunt for food.",
       "Find a litter of puppies, go to them and start throwing balls in every direction you can muster. Take home the puppies that go get the balls and bring them back to you.",
     ],
     values: ["Sunny, Maisie", "Charlie, Rainy", "George, Odin"],
   },
 ];
+
+export const results = {
+  Sunny:
+    "You're a Sunny! You are happy, calm, and nurturing. You enjoy taking walks and contemplating life. You get along well with everyone and people find you incredibly friendly. You work hard to ensure that everyone around you is having as good a time as you are.",
+    Rainy: "You're a Rainy! You are sweet, mischievous, and a little sassy at times. You would much rather stay in bed all day eating Cheetos than run a 5k. You don't give into the status quo and primarily enjoy doing your own thing. You aren't a people pleaser, but would move mountains for the people you care about",
+    George: "You're a George! You are an intellectual. You take the time to think through things logically. You are a strong leader and people love following you. You are full of energy and zest and would much rather spend your days doing something active outside than relaxing on the couch. You may look a little tough on the outside, but at the end of the day, you're a teddy bear who loves nothing more than cuddling with the people you love.",
+    Maisie: "You're a Maisie! You are a little apprehensive about new things, but you try your best to put on a brave face in uncomfortable situations. You are a warm soul who brightens up the lives of the people you know. You crave being the center of attention, but when the spotlight shines on you, you get nervous. You love going out and about, but are also content with just staying home cuddled up with your loved ones.",
+    Charlie: "You're a Charlie! You are incredibly affectionate and love spending time with other people. You never meet a stranger, and everyone who meets you finds your persona endearing. People would describe you as a loveable goofball. You hate confrontation, and you love to be the center of attention. You may wander off at times, but you always come back to the people you love.",
+    Odin: "You're an Odin! You're loyal beyond measure and keep a select few people in your inner circle. You try to show the world that you mean all business, but the people who know you, know that you're the biggest goofball on earth. You make most of your decisions based on your emotions. You love to challenge the rules and openly face confrontation. You have a hard time trusting others, but once you do, you love them deeply",
+};
