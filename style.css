@@ -43,6 +43,10 @@ h2 {
   color: var(--dark-pink);
 }
 
+.container p {
+  margin: 0.2em 0;
+}
+
 body > .container {
   margin-bottom: 1em;
 }
@@ -55,7 +59,8 @@ body > .container {
 
 .btn-container {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
+  margin-top: 1em;
 }
 
 .modal {
@@ -103,11 +108,8 @@ body > .container {
   align-self: flex-end;
 }
 
-.quiz p {
-  margin: 0.5em;
-}
-
-#corgi-btn {
+#corgi-btn,
+#cat-btn {
   background-color: #fbf4d7;
   border-color: var(--dark-pink);
   flex: initial;
