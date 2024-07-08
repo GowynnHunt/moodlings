@@ -1,4 +1,4 @@
-export const quizQuestions = [
+export const questions = [
   {
     question: "Choose your ideal vacation locale.",
     answers: [
@@ -72,3 +72,33 @@ export const quizQuestions = [
     values: ["Sunny, Maisie", "Charlie, Rainy", "George, Odin"],
   },
 ];
+
+export const score = {
+  Charlie: 0,
+  George: 0,
+  Maisie: 0,
+  Odin: 0,
+  Rainy: 0,
+  Sunny: 0,
+}
+
+export function getQuestion(idx) {
+  return questions[idx];
+}
+
+export function getQuestionValue(question, idx) {
+  return question.answers[idx];
+}
+
+export function updateScore(dogs, reset) {
+  function resetScore() {
+    for (dog of score) {
+      dog = 0;
+    }
+  }
+
+  if (reset) {
+    resetScore();
+    return;
+  }
+}

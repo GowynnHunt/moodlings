@@ -1,0 +1,6 @@
+.footer-container {
+  display: flex;
+  justify-content: space-around;
+  background-color: var(--container-bg);
+  padding: 4px 12px;
+}
