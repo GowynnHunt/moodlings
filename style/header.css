@@ -6,15 +6,17 @@
 }
 
 .navbar-menu {
-  width: 30px;
+  width: 3rem;
+  border-radius: 0.5rem;
 }
 
 .navbar-heading {
-  font-size: 32px;
+  font-size: 2.25rem;
   color: var(--bg-heading);
   text-decoration-line: underline;
 }
 
 .navbar-profile {
-  border-radius: 1em;
+  width: 3rem;
+  border-radius: 0.5em;
 }
