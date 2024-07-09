@@ -1,4 +1,4 @@
-import { questions } from "./quiz.js";
+import { questions } from "./questions.js";
 
 const DOG = {
   Sunny: 0,
