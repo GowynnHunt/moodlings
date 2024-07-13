@@ -1,4 +1,4 @@
-export const quizQuestions = [
+export const questions = [
   {
     question: "Choose your ideal vacation locale.",
     answers: [

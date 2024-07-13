@@ -1,0 +1,72 @@
+:root {
+  --bg-heading: #fdd7f6;
+  --container-bg: #d16bc5;
+  --text: #51424e;
+  --border: #aaa5dc;
+  --lemon: #fbf4d7;
+  --light-blue: #79f0ff;
+  --dark-grey: #767395;
+  --light-grey: #e3e0f3;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  color: var(--bg-heading);
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    "Open Sans",
+    "Helvetica Neue",
+    sans-serif;
+}
+
+html {
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+}
+
+body {
+  background-color: var(--bg-heading);
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: auto;
+  gap: 2rem;
+  margin: 1rem 2rem;
+}
+
+.heading-shadow {
+  text-shadow: 2px 1px 1px rgba(0, 0, 0, 1);
+}
+
+.text-shadow {
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.6);
+}
+
+.border {
+  border: 4px solid var(--border);
+  border-radius: 0.5em;
+}
+
+.cool-box-shadow {
+  box-shadow:
+    #d16bc566 5px 5px,
+    #d16bc54d 10px 10px,
+    #d16bc533 15px 15px,
+    #d16bc51a 20px 20px,
+    #d16bc50d 25px 25px;
+}
+
+.plain-box-shadow {
+  box-shadow: rgba(0, 0, 0, 0.25) 3px 3px 4px;
+}

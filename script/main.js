@@ -1,4 +1,4 @@
-import { quizQuestions } from "./quiz.js";
+import { questions } from "./questions.js";
 
 const DOG = {
   Sunny: 0,
@@ -8,8 +8,6 @@ const DOG = {
   Odin: 0,
   Charlie: 0,
 };
-
-console.log(quizQuestions[0].question);
 
 const dogQuiz = document.querySelector("#corgi-btn");
 const modalClose = document.querySelector(".modal-close");
