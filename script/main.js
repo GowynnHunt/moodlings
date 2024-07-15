@@ -9,7 +9,8 @@ const DOG = {
   Charlie: 0,
 };
 
-const dogQuiz = document.querySelector("#corgi-btn");
+const dogBtn = document.querySelector("#corgi-btn");
+const modal = document.querySelector(".modal");
 const modalClose = document.querySelector(".modal-close");
 
 function blurNodes(selector) {
@@ -26,12 +27,22 @@ function unBlurNodes(selector) {
   }
 }
 
-dogQuiz.addEventListener("click", () => {
-  document.querySelector(".modal").style.display = "flex";
+function openModal() {
+  modal.style.display = "flex";
   blurNodes(".container");
-});
+}
 
-modalClose.addEventListener("click", () => {
-  document.querySelector(".modal").style.display = "none";
+function closeModal() {
+  modal.style.display = "none";
   unBlurNodes(".container");
-});
+}
+
+dogBtn.addEventListener("click", openModal);
+modalClose.addEventListener("click", closeModal);
+
+// Not sure if I want this behavior on second thought
+// modal.addEventListener("click", (event) => {
+//   if (event.target.className === "modal") {
+//     closeModal();
+//   }
+// });

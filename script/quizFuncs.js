@@ -11,31 +11,20 @@ export const score = {
   Sunny: 0,
 };
 
-export function getQuestion(idx) {
-  return questions[idx];
-}
-
-export function getQuestionValue(question, idx) {
-  return question.answers[idx];
-}
-
+// Constructs
 export function questionConstructor(questionObj) {
   const node = document.createElement("form");
+  const question = `<p class="question">${questionObj.question}</p>`;
+  const answers = getAnswersHtml(questionObj);
 
-  function getAnswerHtml(questionObj) {
-    return questionObj.answers.map((answer, idx) => {
-      return `
-        <label>
-          <input type="radio" name="answers" value="${idx}" />${answer}
-        </label>`;
+  function getAnswersHtml(questionObj) {
+    const array = questionObj.answers.map((answer, idx) => {
+      return `<label class="answer"><input type="radio" name="answers" value="${idx}" />${answer}</label>`;
     });
+    return array.join("\n");
   }
 
-  //example
-  node.innerHTML = `
-    <p>${questionObj.question}</p>
-    ${getAnswerHtml(questionObj)}
-  `;
+  node.innerHTML = `<div class="question-container">${question}\n${answers}</div>`;
 
   nodeQuiz.appendChild(node);
 }
