@@ -5,7 +5,7 @@
   padding: 4px 12px;
 }
 
-#pup-quiz {
+#dog-quiz {
   display: flex;
   flex-direction: column;
   flex: auto;
@@ -39,12 +39,14 @@
   object-fit: contain;
 }
 
-#corgi-btn,
+#dog-btn,
 #cat-btn {
   background-color: var(--lemon);
   border-color: var(--container-bg);
   border-radius: 1em;
   max-width: 200px;
+  width: 50%;
   min-width: 20%;
   height: auto;
+  flex: auto;
 }

@@ -4,7 +4,7 @@ import { getQuizArray } from "./quizFuncs.js";
 let quizArray = [];
 let idx = 0;
 
-const dogBtn = document.querySelector("#corgi-btn");
+const dogBtn = document.querySelector("#dog-btn");
 const modal = document.querySelector(".modal");
 const modalClose = document.querySelector(".modal-close");
 const quiz = document.querySelector("#quiz");

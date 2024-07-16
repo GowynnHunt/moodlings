@@ -72,6 +72,10 @@
   color: black;
 }
 
+.question-container input {
+  margin-right: 0.25rem;
+}
+
 .modal-buttons {
   display: flex;
   justify-content: space-around;
