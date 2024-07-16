@@ -6,7 +6,7 @@ The website should be cute and contain humorous content.
 ## Goal
 She spent some time drawing how she thinks the website should end up looking: 
 
-![Her Drawing](./images/wife's drawing.jpg)
+![Her Drawing](../images/wife's drawing.png)
 
 After some thought, I'm going to need to change most of what I've written so far along with (hopefully) making it easier to manipulate. We both agreed that it should probably just be the "Holy Grail" of web design:
 
