@@ -1,5 +1,8 @@
 import { score, results, dogQuizQuestions } from "./data.js";
 import { getQuizArray } from "./quizFuncs.js";
+import { getTestScoreObject } from "./debug.js";
+
+// getTestScoreObject(score, dogQuizQuestions, 1000);
 
 let quizArray = [];
 let choices = [];
@@ -89,15 +92,17 @@ function quizButtonHandler() {
   }
 }
 
-dogBtn.addEventListener("click", startQuiz);
-modalClose.addEventListener("click", exitQuiz);
-
-quiz.addEventListener("click", (event) => {
+function quizHandler(event) {
   if (event.target.tagName === "INPUT") {
     choices[idx] = dogQuizQuestions[idx].values[event.target.value];
     quizButtonHandler();
   }
-});
+}
+
+dogBtn.addEventListener("click", startQuiz);
+modalClose.addEventListener("click", exitQuiz);
+
+quiz.addEventListener("click", quizHandler);
 
 previous.addEventListener("click", previousQuizQuestion);
 next.addEventListener("click", nextQuizQuestion);

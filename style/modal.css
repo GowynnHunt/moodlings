@@ -1,3 +1,4 @@
+/* The parent modal container */
 .modal {
   display: none; /* Hidden by default */
   flex-direction: column;
