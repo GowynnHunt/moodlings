@@ -10,4 +10,4 @@ She spent some time drawing how she thinks the website should end up looking:
 
 After some thought, I'm going to need to change most of what I've written so far along with (hopefully) making it easier to manipulate. We both agreed that it should probably just be the "Holy Grail" of web design:
 
-![Holy Grail Web Layout](images/holy-grail.png)
+![Holy Grail Web Layout](./images/holy-grail.png)
