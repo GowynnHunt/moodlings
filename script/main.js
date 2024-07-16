@@ -3,6 +3,7 @@ import { getQuizArray } from "./quizFuncs.js";
 
 let quizArray = [];
 let choices = [];
+let userScore = {};
 let idx = 0;
 
 const dogBtn = document.querySelector("#dog-btn");
@@ -58,6 +59,13 @@ function previousQuizQuestion() {
 
 function finishQuiz() {
   exitQuiz();
+  userScore = choices.reduce((score, dogString) => {
+    for (const dog of dogString.split(", ")) {
+      score[dog] += 1;
+    }
+    return score;
+  }, score);
+  console.log(userScore);
 }
 
 function quizButtonHandler() {
