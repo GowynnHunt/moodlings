@@ -1,32 +1,20 @@
-import { questions } from "./questions.js";
-
-const nodeQuiz = document.querySelector("#quiz");
-
-export const score = {
-  Charlie: 0,
-  George: 0,
-  Maisie: 0,
-  Odin: 0,
-  Rainy: 0,
-  Sunny: 0,
-};
-
-// Constructs
-export function questionConstructor(questionObj) {
+// Constructs and returns a question form from a question object
+function getQuestionHtml(questionObj) {
   const node = document.createElement("form");
   const question = `<p class="question">${questionObj.question}</p>`;
-  const answers = getAnswersHtml(questionObj);
 
-  function getAnswersHtml(questionObj) {
-    const array = questionObj.answers.map((answer, idx) => {
+  const answers = questionObj.answers
+    .map((answer, idx) => {
       return `<label class="answer"><input type="radio" name="answers" value="${idx}" />${answer}</label>`;
-    });
-    return array.join("\n");
-  }
+    })
+    .join("\n");
 
   node.innerHTML = `<div class="question-container">${question}\n${answers}</div>`;
 
-  nodeQuiz.appendChild(node);
+  return node;
 }
 
-questionConstructor(questions[0]);
+// Returns an array of HTML Forms of questions and answers
+export function getQuizArray(questions) {
+  return questions.map(getQuestionHtml);
+}
