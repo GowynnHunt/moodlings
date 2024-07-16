@@ -98,3 +98,7 @@
 .modal-buttons button:active {
   background-color: var(--border);
 }
+
+#finish {
+  display: none;
+}
