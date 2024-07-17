@@ -1,8 +1,9 @@
 import { score, results, dogQuizQuestions } from "./data.js";
 import { getQuizArray } from "./quizFuncs.js";
-import { getTestScoreObject } from "./debug.js";
+import { getTestScoreObject, getDuplicatesObject } from "./debug.js";
 
 // getTestScoreObject(score, dogQuizQuestions, 1000);
+// getDuplicatesObject(dogQuizQuestions, 1000);
 
 let quizArray = [];
 let choices = [];
@@ -68,7 +69,7 @@ function finishQuiz() {
     }
     return score;
   }, score);
-  console.log(userScore);
+  console.table(userScore);
 }
 
 function quizButtonHandler() {
@@ -77,6 +78,8 @@ function quizButtonHandler() {
     choices.length === dogQuizQuestions.length
   ) {
     finish.style.display = "block";
+  } else {
+    finish.style.display = "none";
   }
 
   if (idx === 0) {
