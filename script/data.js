@@ -73,6 +73,19 @@ export const dogQuizQuestions = [
   },
 ];
 
+export const tieBreaker = {
+  question: "Which of these would be your proudest accomplisment?",
+  answers: [
+    "Winning a hot dog eating competition?",
+    "Walking 20 miles in a day and exploring a new city?",
+    "Playing a perfect game in Frisbee golf?",
+    "Traveling across the country in a motorcycle gang?",
+    "Catching every single ball that was hit your way, earning you a perfect game in baseball?",
+    "Crowd funding a new park with a beautiful body of water for your community to enjoy?",
+  ],
+  values: ["Rainy", "Sunny", "Odin", "Charlie", "George", "Maisie"],
+};
+
 export const results = {
   Sunny:
     "You're a Sunny! You are happy, calm, and nurturing. You enjoy taking walks and contemplating life. You get along well with everyone and people find you incredibly friendly. You work hard to ensure that everyone around you is having as good a time as you are.",

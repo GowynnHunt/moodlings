@@ -9,15 +9,6 @@ let score = {
   Rainy: 0,
   Sunny: 0,
 };
-const duplicates = {
-  0: 0,
-  1: 0,
-  2: 0,
-  3: 0,
-  4: 0,
-  5: 0,
-  6: 0,
-};
 
 function resetObject(object) {
   for (const dog in object) {
@@ -49,11 +40,20 @@ export function getTestScoreObject(score, dogQuizQuestions, iterations) {
 
   console.table(score);
 }
+
 // In the quiz, you should not be able to end with a score >= 3 in more
 // than one dog. This function will return an object that tells the
 // reader how many duplicates there were in testing it.
 export function getDuplicatesObject(dogQuizQuestions, iterations) {
-  resetObject(duplicates);
+  const duplicates = {
+    0: 0,
+    1: 0,
+    2: 0,
+    3: 0,
+    4: 0,
+    5: 0,
+    6: 0,
+  };
   for (let i = 0; i < iterations; i++) {
     // Randomly get choice from each question object
     for (const qObj of dogQuizQuestions) {
