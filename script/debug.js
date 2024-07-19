@@ -1,6 +1,5 @@
 let choices = [];
 let winners = [];
-let userScore = {};
 let score = {
   Charlie: 0,
   George: 0,

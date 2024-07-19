@@ -1,14 +1,39 @@
 import { dogQuizQuestions, results, score, tieBreaker } from "./data.js";
-import { closeModal } from "./modal.js";
+import { closeModal, modalDisplay, getModalHeading } from "./modal.js";
 
 let choices = [];
 let quizArray = [];
 let userScore = {};
 let idx = 0;
 
-const previousBtn = document.querySelector("#previous");
-const nextBtn = document.querySelector("#next");
-const finishBtn = document.querySelector("#finish");
+// Returns a button container with three buttons. Each has an event
+// listener with a function mapped to its name and purpose.
+function getQuizButtons() {
+  const div = document.createElement("div");
+  div.className = "modal-buttons";
+
+  const previousBtn = document.createElement("button");
+  previousBtn.textContent = "Previous";
+  previousBtn.addEventListener("click", previousQuizQuestion);
+
+  const nextBtn = document.createElement("button");
+  nextBtn.textContent = "Next";
+  nextBtn.addEventListener("click", nextQuizQuestion);
+
+  const finishBtn = document.createElement("button");
+  finishBtn.textContent = "Finish";
+  finishBtn.addEventListener("click", finishQuiz);
+
+  const buttonArray = [previousBtn, nextBtn, finishBtn];
+
+  for (const button of buttonArray) {
+    button.setAttribute("type", "button");
+    button.className = "plain-box-shadow";
+    div.appendChild(button);
+  }
+
+  return div;
+}
 
 const modalheading = document.querySelector(".modal h1");
 const quiz = document.querySelector("#quiz");
@@ -36,7 +61,7 @@ function getQuestionHtml(questionObj) {
 }
 
 // Returns an array of HTML Forms of questions and answers
-export function getQuizArray(questions) {
+function getQuizArray(questions) {
   return questions.map(getQuestionHtml);
 }
 
