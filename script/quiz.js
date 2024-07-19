@@ -1,68 +1,64 @@
 import { dogQuizQuestions, results, score, tieBreaker } from "./data.js";
 import { closeModal, modalDisplay, getModalHeading } from "./modal.js";
+import { getResult } from "./result.js";
+import { testScore1, testScore2 } from "./debug.js";
 
 let choices = [];
 let quizArray = [];
-let userScore = {};
 let idx = 0;
 
-// Returns a button container with three buttons. Each has an event
-// listener with a function mapped to its name and purpose.
-function getQuizButtons() {
-  const div = document.createElement("div");
-  div.className = "modal-buttons";
+const closeBtn = document.querySelectorAll(".modal-close");
+closeBtn.forEach((button) => button.addEventListener("click", closeModal));
 
-  const previousBtn = document.createElement("button");
-  previousBtn.textContent = "Previous";
-  previousBtn.addEventListener("click", previousQuizQuestion);
+// Selectors for elements in the modal-body
+const forms = document.querySelector("#forms");
+forms.addEventListener("click", quizChoiceHandler);
 
-  const nextBtn = document.createElement("button");
-  nextBtn.textContent = "Next";
-  nextBtn.addEventListener("click", nextQuizQuestion);
+const previousBtn = document.querySelector("#previous");
+previousBtn.addEventListener("click", previousQuizQuestion);
 
-  const finishBtn = document.createElement("button");
-  finishBtn.textContent = "Finish";
-  finishBtn.addEventListener("click", finishQuiz);
+const nextBtn = document.querySelector("#next");
+nextBtn.addEventListener("click", nextQuizQuestion);
 
-  const buttonArray = [previousBtn, nextBtn, finishBtn];
-
-  for (const button of buttonArray) {
-    button.setAttribute("type", "button");
-    button.className = "plain-box-shadow";
-    div.appendChild(button);
-  }
-
-  return div;
-}
-
-const modalheading = document.querySelector(".modal h1");
-const quiz = document.querySelector("#quiz");
-
-quiz.addEventListener("click", quizChoiceHandler);
-
-previous.addEventListener("click", previousQuizQuestion);
-next.addEventListener("click", nextQuizQuestion);
-finish.addEventListener("click", finishQuiz);
+const finishBtn = document.querySelector("#finish");
+finishBtn.addEventListener("click", finishQuiz);
 
 // Constructs and returns a question form from a question object
-function getQuestionHtml(questionObj) {
+function getQuestionForm(questionObj) {
   const node = document.createElement("form");
-  const question = `<p class="question">${questionObj.question}</p>`;
+  node.className = "question-container";
 
-  const answers = questionObj.answers
-    .map((answer, idx) => {
-      return `<label class="answer"><input type="radio" name="answers" value="${idx}" />${answer}</label>`;
-    })
-    .join("\n");
+  const question = document.createElement("p");
+  question.className = "question";
+  question.textContent = `${questionObj.question}`;
 
-  node.innerHTML = `<div class="question-container">${question}\n${answers}</div>`;
+  const answers = questionObj.answers.map((answer, idx) => {
+    const label = document.createElement("label");
+    label.className = "answer";
+
+    const input = document.createElement("input");
+    input.setAttribute("type", "radio");
+    input.setAttribute("name", "answers");
+    input.setAttribute("value", idx);
+
+    label.appendChild(input);
+
+    const textNode = document.createTextNode(answer);
+    label.appendChild(textNode);
+
+    return label;
+  });
+  // .join("\n");
+
+  node.appendChild(question);
+  answers.forEach((answer) => node.appendChild(answer));
 
   return node;
 }
 
 // Returns an array of HTML Forms of questions and answers
 function getQuizArray(questions) {
-  return questions.map(getQuestionHtml);
+  return questions.map(getQuestionForm);
 }
 
 // Handles appearance of quiz buttons
@@ -95,24 +91,14 @@ function quizButtonHandler() {
 
 // Begins quiz in Modal
 export function startQuiz() {
-  modalheading.textContent = "The Quiz!";
   quizArray = getQuizArray(dogQuizQuestions);
+  for (const dog in score) {
+    score[dog] = 0;
+  }
   choices = [];
   idx = 0;
   quizButtonHandler();
-  quiz.replaceChildren(quizArray[0]);
-}
-
-// Handles finish button function
-function finishQuiz() {
-  closeModal();
-  userScore = choices.reduce((score, dogString) => {
-    for (const dog of dogString.split(", ")) {
-      score[dog] += 1;
-    }
-    return score;
-  }, score);
-  console.table(userScore);
+  forms.replaceChildren(quizArray[0]);
 }
 
 // Adds user choices to array
@@ -123,14 +109,21 @@ function quizChoiceHandler(event) {
   }
 }
 
+// Quiz Button Section //
 function nextQuizQuestion() {
   idx++;
   quizButtonHandler();
-  quiz.replaceChildren(quizArray[idx]);
+  forms.replaceChildren(quizArray[idx]);
 }
 
 function previousQuizQuestion() {
   idx--;
   quizButtonHandler();
-  quiz.replaceChildren(quizArray[idx]);
+  forms.replaceChildren(quizArray[idx]);
+}
+
+function finishQuiz() {
+  closeModal();
+  const userScore = getResult(choices);
+  console.table(userScore);
 }

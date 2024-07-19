@@ -3,16 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style/main.css" />
-    <link rel="stylesheet" href="style/header.css" />
     <link rel="stylesheet" href="style/content.css" />
-    <link rel="stylesheet" href="style/modal.css" />
     <link rel="stylesheet" href="style/footer.css" />
+    <link rel="stylesheet" href="style/header.css" />
+    <link rel="stylesheet" href="style/main.css" />
+    <link rel="stylesheet" href="style/modal.css" />
+    <link rel="stylesheet" href="style/quiz.css" />
+    <link rel="stylesheet" href="style/results.css" />
     <script defer type="module" src="script/main.js"></script>
     <title>Moodlings</title>
   </head>
   <body>
-    <div id="header" class="navbar-container border plain-box-shadow">
+    <div id="header" class="navbar-container border plain-box-shadow blur">
       <button class="navbar-menu">
         <img
           src="images/the-dogs.png"
@@ -30,7 +32,7 @@
       </button>
     </div>
 
-    <div id="content" class="content-container border cool-box-shadow">
+    <div id="content" class="content-container border cool-box-shadow blur">
       <div id="dog-quiz">
         <h2 class="content-heading heading-shadow">Pup Quiz</h2>
         <div class="content-info text-shadow">
@@ -76,7 +78,7 @@
 
     <div
       id="footer"
-      class="footer-container border plain-box-shadow text-shadow"
+      class="footer-container border plain-box-shadow text-shadow blur"
     >
       <a href="" class="footer-link">About Us</a>
       <a href="" class="footer-link">Meet the pups</a>
@@ -85,19 +87,34 @@
 
     <div class="modal">
       <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="heading-shadow"></h1>
-          <button class="modal-close">&times;</button>
+        <div id="quiz">
+          <div class="modal-header">
+            <h1 class="heading-shadow">The Quiz!</h1>
+            <button class="modal-close">&times;</button>
+          </div>
+
+          <div class="modal-body">
+            <div id="forms"></div>
+            <div class="modal-buttons">
+              <button id="previous" class="plain-box-shadow" type="button">Previous</button>
+              <button id="next" class="plain-box-shadow" type="button">Next</button>
+              <button id="finish" class="plain-box-shadow" type="button">Finish</button>
+            </div>
+          </div>
         </div>
 
-        <!-- <div class="modal-body"> -->
-        <!--   <div id="quiz"></div> -->
-        <!--   <div class="modal-buttons"> -->
-        <!--     <button id="previous" class="plain-box-shadow" type="button">Previous</button> -->
-        <!--     <button id="next" class="plain-box-shadow" type="button">Next</button> -->
-        <!--     <button id="finish" class="plain-box-shadow" type="button">Finish</button> -->
-        <!--   </div> -->
-        <!-- </div> -->
+        <div id="results">
+          <div class="modal-header">
+            <h1 class="heading-shadow">Results!</h1>
+            <button class="modal-close">&times;</button>
+          </div>
+          <div class="modal-body">
+            <div id="result-text"></div>
+            <div class="modal-buttons">
+              <button id="finish" class="plain-box-shadow" type="button">Finish</button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </body>

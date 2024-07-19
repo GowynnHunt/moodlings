@@ -19,25 +19,25 @@ export function unBlurNodes(selector) {
 
 export function openModal() {
   modal.style.display = "flex";
-  blurNodes(".container");
+  blurNodes(".blur");
   this.id === "dog-btn" ? startQuiz() : null;
 }
 
 export function closeModal() {
   modal.style.display = "none";
-  unBlurNodes(".container");
+  unBlurNodes(".blur");
 }
 
 export function modalDisplay(...nodes) {
   modalContent.replaceChildren(nodes);
 }
 
-export function getModalHeading(heading) {
+export function getModalHeading(headingText) {
   const div = document.createElement("div");
   div.className = "modal-header";
 
   const heading = document.createElement("h1");
-  heading.textContent = heading;
+  heading.textContent = headingText;
   heading.className = "heading-shadow";
 
   const close = document.createElement("button");

@@ -9,6 +9,24 @@ let score = {
   Sunny: 0,
 };
 
+export let testScore1 = {
+  Charlie: 2,
+  George: 0,
+  Maisie: 3,
+  Odin: 3,
+  Rainy: 1,
+  Sunny: 3,
+};
+
+export let testScore2 = {
+  Charlie: 5,
+  George: 0,
+  Maisie: 3,
+  Odin: 2,
+  Rainy: 4,
+  Sunny: 2,
+};
+
 function resetObject(object) {
   for (const dog in object) {
     object[dog] = 0;
