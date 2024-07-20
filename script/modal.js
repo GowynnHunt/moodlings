@@ -1,16 +1,14 @@
-import { startQuiz } from "./quiz.js";
+const closeBtn = document.querySelectorAll(".modal-close");
+closeBtn.forEach((button) => button.addEventListener("click", closeModal));
 
-const modal = document.querySelector(".modal");
-const modalContent = document.querySelector(".modal-content");
-
-export function blurNodes(selector) {
+function blurNodes(selector) {
   const nodes = document.querySelectorAll(selector);
   for (const node of nodes) {
     node.style.filter = "blur(2.5px)";
   }
 }
 
-export function unBlurNodes(selector) {
+function unBlurNodes(selector) {
   const nodes = document.querySelectorAll(selector);
   for (const node of nodes) {
     node.style.filter = "blur(0)";
@@ -18,31 +16,38 @@ export function unBlurNodes(selector) {
 }
 
 export function openModal() {
+  const modal = document.querySelector(".modal");
   modal.style.display = "flex";
   blurNodes(".blur");
-  this.id === "dog-btn" ? startQuiz() : null;
 }
 
 export function closeModal() {
+  const modal = document.querySelector(".modal");
   modal.style.display = "none";
   unBlurNodes(".blur");
 }
 
-export function modalDisplay(...nodes) {
-  modalContent.replaceChildren(nodes);
+// Returns an array of the child nodes of the ".modal-content" div
+function getModalNodes() {
+  const collection = document.querySelector(".modal-content").children;
+  const nodeArr = [];
+
+  for (let i = 0; i < collection.length; i++) {
+    nodeArr.push(collection[i]);
+  }
+
+  return nodeArr;
 }
 
-export function getModalHeading(headingText) {
-  const div = document.createElement("div");
-  div.className = "modal-header";
+// Only displays desired Modal content
+export function modalDisplay(content) {
+  for (const node of getModalNodes()) {
+    if (node.id === content) {
+      node.style.display = "block";
+    } else {
+      node.style.display = "none";
+    }
+  }
 
-  const heading = document.createElement("h1");
-  heading.textContent = headingText;
-  heading.className = "heading-shadow";
-
-  const close = document.createElement("button");
-  close.className = "modal-close";
-  close.textContent = `&times;`;
-
-  return div;
+  openModal();
 }

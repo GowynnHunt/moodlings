@@ -1,4 +1,4 @@
-import { openModal } from "./modal.js";
+import { startQuiz } from "./quiz.js";
 
 const dogBtn = document.querySelector("#dog-btn");
-dogBtn.addEventListener("click", openModal);
+dogBtn.addEventListener("click", startQuiz);

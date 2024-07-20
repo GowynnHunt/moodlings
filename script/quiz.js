@@ -1,32 +1,28 @@
-import { dogQuizQuestions, results, score, tieBreaker } from "./data.js";
-import { closeModal, modalDisplay, getModalHeading } from "./modal.js";
+import { dogQuizQuestions, score } from "./data.js";
+import { modalDisplay } from "./modal.js";
 import { getResult } from "./result.js";
-import { testScore1, testScore2 } from "./debug.js";
 
 let choices = [];
 let quizArray = [];
 let idx = 0;
 
-const closeBtn = document.querySelectorAll(".modal-close");
-closeBtn.forEach((button) => button.addEventListener("click", closeModal));
-
 // Selectors for elements in the modal-body
-const forms = document.querySelector("#forms");
+const forms = document.querySelector("#quiz .forms");
 forms.addEventListener("click", quizChoiceHandler);
 
-const previousBtn = document.querySelector("#previous");
+const previousBtn = document.querySelector("#quiz .previous");
 previousBtn.addEventListener("click", previousQuizQuestion);
 
-const nextBtn = document.querySelector("#next");
+const nextBtn = document.querySelector("#quiz .next");
 nextBtn.addEventListener("click", nextQuizQuestion);
 
-const finishBtn = document.querySelector("#finish");
+const finishBtn = document.querySelector("#quiz .finish");
 finishBtn.addEventListener("click", finishQuiz);
 
 // Constructs and returns a question form from a question object
-function getQuestionForm(questionObj) {
-  const node = document.createElement("form");
-  node.className = "question-container";
+export function getQuestionForm(questionObj) {
+  const form = document.createElement("form");
+  form.className = "question-container";
 
   const question = document.createElement("p");
   question.className = "question";
@@ -50,10 +46,10 @@ function getQuestionForm(questionObj) {
   });
   // .join("\n");
 
-  node.appendChild(question);
-  answers.forEach((answer) => node.appendChild(answer));
+  form.appendChild(question);
+  answers.forEach((answer) => form.appendChild(answer));
 
-  return node;
+  return form;
 }
 
 // Returns an array of HTML Forms of questions and answers
@@ -91,14 +87,22 @@ function quizButtonHandler() {
 
 // Begins quiz in Modal
 export function startQuiz() {
-  quizArray = getQuizArray(dogQuizQuestions);
+  // Reset score
   for (const dog in score) {
     score[dog] = 0;
   }
+  // Reset user choices
   choices = [];
+
+  // Reset global idx
   idx = 0;
+
+  // Get question forms
+  quizArray = getQuizArray(dogQuizQuestions);
+
   quizButtonHandler();
   forms.replaceChildren(quizArray[0]);
+  modalDisplay("quiz");
 }
 
 // Adds user choices to array
@@ -123,7 +127,5 @@ function previousQuizQuestion() {
 }
 
 function finishQuiz() {
-  closeModal();
-  const userScore = getResult(choices);
-  console.table(userScore);
+  getResult(choices);
 }

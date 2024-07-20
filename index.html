@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="style/modal.css" />
     <link rel="stylesheet" href="style/quiz.css" />
     <link rel="stylesheet" href="style/results.css" />
+    <link rel="stylesheet" href="style/tiebreaker.css" />
     <script defer type="module" src="script/main.js"></script>
     <title>Moodlings</title>
   </head>
@@ -94,11 +95,24 @@
           </div>
 
           <div class="modal-body">
-            <div id="forms"></div>
+            <div class="forms"></div>
             <div class="modal-buttons">
-              <button id="previous" class="plain-box-shadow" type="button">Previous</button>
-              <button id="next" class="plain-box-shadow" type="button">Next</button>
-              <button id="finish" class="plain-box-shadow" type="button">Finish</button>
+              <button class="plain-box-shadow previous" type="button">Previous</button>
+              <button class="plain-box-shadow next" type="button">Next</button>
+              <button class="plain-box-shadow modal-close finish" type="button">Finish</button>
+            </div>
+          </div>
+        </div>
+
+        <div id="tieBreaker">
+          <div class="modal-header">
+            <h1 class="heading-shadow">Tiebreaker!</h1>
+            <button class="modal-close">&times;</button>
+          </div>
+          <div class="modal-body">
+            <div class="forms"></div>
+            <div class="modal-buttons">
+              <button class="plain-box-shadow modal-close finish" type="button">Finish</button>
             </div>
           </div>
         </div>
@@ -111,7 +125,7 @@
           <div class="modal-body">
             <div id="result-text"></div>
             <div class="modal-buttons">
-              <button id="finish" class="plain-box-shadow" type="button">Finish</button>
+              <button class="plain-box-shadow modal-close finish" type="button">Finish</button>
             </div>
           </div>
         </div>
