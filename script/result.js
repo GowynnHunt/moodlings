@@ -21,7 +21,7 @@ finishBtn.addEventListener("click", finishHandler);
 
 const results = document.querySelector("#result-text");
 
-export function getResult(choices) {
+function getResult(choices) {
   // Counts dog names from strings and merges it into a score object
   const userScore = choices.reduce((score, dogString) => {
     for (const dog of dogString.split(", ")) {
@@ -103,3 +103,5 @@ function tieButtonHandler() {
     finishBtn.style.display = "none";
   }
 }
+
+export { getResult };

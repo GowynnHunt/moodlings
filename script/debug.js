@@ -9,7 +9,7 @@ let score = {
   Sunny: 0,
 };
 
-export let testScore1 = {
+let testScore1 = {
   Charlie: 2,
   George: 0,
   Maisie: 3,
@@ -18,7 +18,7 @@ export let testScore1 = {
   Sunny: 3,
 };
 
-export let testScore2 = {
+let testScore2 = {
   Charlie: 5,
   George: 0,
   Maisie: 3,
@@ -34,7 +34,7 @@ function resetObject(object) {
 }
 
 // Records the raw number of times a dog shows up into the console
-export function getTestScoreObject(score, dogQuizQuestions, iterations) {
+function getTestScoreObject(score, dogQuizQuestions, iterations) {
   let choices = [];
 
   for (let i = 0; i < iterations; i++) {
@@ -61,7 +61,7 @@ export function getTestScoreObject(score, dogQuizQuestions, iterations) {
 // In the quiz, you should not be able to end with a score >= 3 in more
 // than one dog. This function will return an object that tells the
 // reader how many duplicates there were in testing it.
-export function getDuplicatesObject(dogQuizQuestions, iterations) {
+function getDuplicatesObject(dogQuizQuestions, iterations) {
   const duplicates = {
     0: 0,
     1: 0,
@@ -102,3 +102,5 @@ export function getDuplicatesObject(dogQuizQuestions, iterations) {
   }
   console.table(duplicates);
 }
+
+export { testScore1, testScore2, getTestScoreObject, getDuplicatesObject };

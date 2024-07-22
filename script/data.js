@@ -1,4 +1,4 @@
-export const dogQuizQuestions = [
+const dogQuizQuestions = [
   {
     question: "Choose your ideal vacation locale.",
     answers: [
@@ -73,7 +73,7 @@ export const dogQuizQuestions = [
   },
 ];
 
-export const tieBreaker = {
+const tieBreaker = {
   question: "Which of these would be your proudest accomplisment?",
   answers: [
     "Winning a hot dog eating competition?",
@@ -86,7 +86,7 @@ export const tieBreaker = {
   values: ["Rainy", "Sunny", "Odin", "Charlie", "George", "Maisie"],
 };
 
-export const results = {
+const results = {
   Sunny:
     "You're a Sunny! You are happy, calm, and nurturing. You enjoy taking walks and contemplating life. You get along well with everyone and people find you incredibly friendly. You work hard to ensure that everyone around you is having as good a time as you are.",
   Rainy:
@@ -100,7 +100,7 @@ export const results = {
   Odin: "You're an Odin! You're loyal beyond measure and keep a select few people in your inner circle. You try to show the world that you mean all business, but the people who know you, know that you're the biggest goofball on earth. You make most of your decisions based on your emotions. You love to challenge the rules and openly face confrontation. You have a hard time trusting others, but once you do, you love them deeply",
 };
 
-export const score = {
+const score = {
   Charlie: 0,
   George: 0,
   Maisie: 0,
@@ -108,3 +108,5 @@ export const score = {
   Rainy: 0,
   Sunny: 0,
 };
+
+export { dogQuizQuestions, tieBreaker, results, score };

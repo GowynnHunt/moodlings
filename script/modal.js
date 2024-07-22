@@ -15,13 +15,13 @@ function unBlurNodes(selector) {
   }
 }
 
-export function openModal() {
+function openModal() {
   const modal = document.querySelector(".modal");
   modal.style.display = "flex";
   blurNodes(".blur");
 }
 
-export function closeModal() {
+function closeModal() {
   const modal = document.querySelector(".modal");
   modal.style.display = "none";
   unBlurNodes(".blur");
@@ -40,7 +40,7 @@ function getModalNodes() {
 }
 
 // Only displays desired Modal content
-export function modalDisplay(content) {
+function modalDisplay(content) {
   for (const node of getModalNodes()) {
     if (node.id === content) {
       node.style.display = "block";
@@ -51,3 +51,5 @@ export function modalDisplay(content) {
 
   openModal();
 }
+
+export { openModal, closeModal, modalDisplay };

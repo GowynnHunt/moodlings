@@ -20,7 +20,7 @@ const finishBtn = document.querySelector("#quiz .finish");
 finishBtn.addEventListener("click", finishQuiz);
 
 // Constructs and returns a question form from a question object
-export function getQuestionForm(questionObj) {
+function getQuestionForm(questionObj) {
   const form = document.createElement("form");
   form.className = "question-container";
 
@@ -86,7 +86,7 @@ function quizButtonHandler() {
 }
 
 // Begins quiz in Modal
-export function startQuiz() {
+function startQuiz() {
   // Reset score
   for (const dog in score) {
     score[dog] = 0;
@@ -129,3 +129,5 @@ function previousQuizQuestion() {
 function finishQuiz() {
   getResult(choices);
 }
+
+export { getQuestionForm, startQuiz };
