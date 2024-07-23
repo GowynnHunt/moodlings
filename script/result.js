@@ -1,25 +1,16 @@
-import { score, tieBreaker } from "./data.js";
+import { score, tieBreaker, results } from "./data.js";
 import { modalDisplay } from "./modal.js";
 import { getQuestionForm } from "./quiz.js";
 
+let tieArr = [];
+let tieObject = {};
 let tieChoice;
-// const test = [
-//   "Sunny, Rainy, Charlie, Charlie",
-//   "Rainy, George",
-//   "Maisie, Sunny, George",
-//   "George, Odin, Odin",
-//   "Sunny, Maisie",
-//   "Odin, Maisie",
-//   "Charlie, Rainy",
-// ];
-// getResult(test);
-
-modalDisplay("results");
+let winner;
 
 const finishBtn = document.querySelector("#tieBreaker .finish");
 finishBtn.addEventListener("click", finishHandler);
 
-const results = document.querySelector("#result-text");
+const resultNode = document.querySelector("#result-text");
 
 function getResult(choices) {
   // Counts dog names from strings and merges it into a score object
@@ -30,15 +21,15 @@ function getResult(choices) {
     return score;
   }, score);
 
-  console.table(userScore);
+  // console.table(userScore);
 
   // Find highest score number in object
   const highestScore = Object.values(userScore).reduce((acc, value) => {
     return acc > value ? acc : value;
   }, 0);
 
+  tieArr = [];
   // Check for tie
-  const tieArr = [];
   for (const score in userScore) {
     if (userScore[score] === highestScore) {
       tieArr.push(score);
@@ -47,12 +38,15 @@ function getResult(choices) {
 
   if (tieArr.length > 1) {
     console.log(`These are the tied Dogs: ${tieArr}`);
-    startTieBreaker(getTieBreaker(tieArr));
+    startTieBreaker();
   } else {
+    winner = tieArr[0];
+    displayResult(winner);
   }
 }
 
-function getTieBreaker(tieArr) {
+// Sets tieObject based on dogs that the user tied
+function getTieObject(tieArr) {
   // Find indexes of all dogs included in tie
   const idxArr = tieArr.map((dog) => {
     return tieBreaker.values.findIndex((value) => value === dog);
@@ -68,20 +62,19 @@ function getTieBreaker(tieArr) {
     return tieArr.includes(value);
   });
 
-  const newTieBreaker = {
+  tieObject = {
     question: tieBreaker.question,
     answers,
     values,
   };
-
-  return newTieBreaker;
 }
 
-function startTieBreaker(myTieBreaker) {
+function startTieBreaker() {
   const forms = document.querySelector("#tieBreaker .forms");
   forms.addEventListener("click", tieChoiceHandler);
 
-  const tiebreakerForm = getQuestionForm(myTieBreaker);
+  getTieObject(tieArr);
+  const tiebreakerForm = getQuestionForm(tieObject);
   forms.replaceChildren(tiebreakerForm);
 
   tieChoice = null;
@@ -102,6 +95,24 @@ function tieButtonHandler() {
   } else {
     finishBtn.style.display = "none";
   }
+}
+
+function finishHandler() {
+  winner = tieObject.values[tieChoice];
+  displayResult(winner);
+}
+
+// Takes winner string, gets result text from data.js, appends it to
+// #result-text
+function displayResult(winner) {
+  const text = results[winner];
+
+  const node = document.createElement("p");
+  node.className = "answer";
+  node.textContent = text;
+
+  resultNode.replaceChildren(node);
+  modalDisplay("results");
 }
 
 export { getResult };

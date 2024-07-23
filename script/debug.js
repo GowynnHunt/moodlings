@@ -27,6 +27,17 @@ let testScore2 = {
   Sunny: 2,
 };
 
+// const test = [
+//   "Sunny, Rainy, Charlie, Charlie",
+//   "Rainy, George",
+//   "Maisie, Sunny, George",
+//   "George, Odin, Odin",
+//   "Sunny, Maisie",
+//   "Odin, Maisie",
+//   "Charlie, Rainy",
+// ];
+// getResult(test);
+
 function resetObject(object) {
   for (const dog in object) {
     object[dog] = 0;

@@ -44,7 +44,6 @@ function getQuestionForm(questionObj) {
 
     return label;
   });
-  // .join("\n");
 
   form.appendChild(question);
   answers.forEach((answer) => form.appendChild(answer));
