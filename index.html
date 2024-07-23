@@ -3,30 +3,40 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style/main.css" />
-    <link rel="stylesheet" href="style/header.css" />
     <link rel="stylesheet" href="style/content.css" />
-    <link rel="stylesheet" href="style/modal.css" />
     <link rel="stylesheet" href="style/footer.css" />
+    <link rel="stylesheet" href="style/header.css" />
+    <link rel="stylesheet" href="style/main.css" />
+    <link rel="stylesheet" href="style/modal.css" />
+    <link rel="stylesheet" href="style/quiz.css" />
+    <link rel="stylesheet" href="style/results.css" />
+    <link rel="stylesheet" href="style/tiebreaker.css" />
     <script defer type="module" src="script/main.js"></script>
     <title>Moodlings</title>
   </head>
   <body>
-    <div id="header" class="navbar-container border plain-box-shadow">
-      <button class="navbar-menu"></button>
-      <h1 class="navbar-heading text-shadow">Moodlings</h1>
-      <img
-        src="images/cute-corgi-butt-vector.jpg"
-        width="30px"
-        alt="Profile picture"
-        class="navbar-profile"
-      />
+    <div id="header" class="navbar-container border plain-box-shadow blur">
+      <button class="navbar-menu">
+        <img
+          src="images/the-dogs.png"
+          width="30px"
+          alt="An artistic rendering of all of the Dogs one can be."
+        />
+      </button>
+      <h1 class="navbar-heading heading-shadow">Moodlings</h1>
+      <button class="navbar-profile">
+        <img
+          src="images/cute-corgi-dog-eating-bone-cartoon.png"
+          width="30px
+          alt="Profile picture"
+        />
+      </button>
     </div>
 
-    <div id="content" class="content-container border cool-box-shadow">
-      <div id="pup-quiz">
-        <h2 class="content-heading text-shadow">Pup Quiz</h2>
-        <div class="content-info">
+    <div id="content" class="content-container border cool-box-shadow blur">
+      <div id="dog-quiz">
+        <h2 class="content-heading heading-shadow">Pup Quiz</h2>
+        <div class="content-info text-shadow">
           <p>
             Have you ever stopped to ponder, "Gee, I wonder what kind of dog I
             am. If only there were some sort of eccentric, online quiz that
@@ -47,29 +57,30 @@
         </div>
 
         <div class="content-buttons">
-          <button id="corgi-btn" type="button">
+          <button id="dog-btn" class="plain-box-shadow" type="button">
             <img
-              src="images/set-handdrawn-corgis-with-ball-dog-food-candy.png"
-              alt="Corgi Butt Button"
-              class="plain-box-shadow"
-              width="80"
-              height="80"
+              src="images/the-dogs.png"
+              alt="Dog Quiz Button"
+              width="80px"
+              height="80px"
             />
           </button>
-          <button id="cat-btn" type="button">
+          <button id="cat-btn" class="plain-box-shadow" type="button">
             <img
               src="images/cat-astronaut-concept-illustration.png"
               alt="Cat astronaut button"
-              class="plain-box-shadow"
-              width="80"
-              height="80"
+              width="80px"
+              height="80px"
             />
           </button>
         </div>
       </div>
     </div>
 
-    <div id="footer" class="footer-container border plain-box-shadow">
+    <div
+      id="footer"
+      class="footer-container border plain-box-shadow text-shadow blur"
+    >
       <a href="" class="footer-link">About Us</a>
       <a href="" class="footer-link">Meet the pups</a>
       <a href="" class="footer-link">Contact us</a>
@@ -77,13 +88,46 @@
 
     <div class="modal">
       <div class="modal-content">
-        <div class="modal-header">
-          <h1>The Quiz!</h1>
-          <button class="modal-close">&times;</button>
+        <div id="quiz">
+          <div class="modal-header">
+            <h1 class="heading-shadow">The Quiz!</h1>
+            <button class="modal-close">&times;</button>
+          </div>
+
+          <div class="modal-body">
+            <div class="forms"></div>
+            <div class="modal-buttons">
+              <button class="plain-box-shadow previous" type="button">Previous</button>
+              <button class="plain-box-shadow next" type="button">Next</button>
+              <button class="plain-box-shadow modal-close finish" type="button">Finish</button>
+            </div>
+          </div>
         </div>
 
-        <div class="modal-body">
-          <div class="quiz"></div>
+        <div id="tieBreaker">
+          <div class="modal-header">
+            <h1 class="heading-shadow">Tiebreaker!</h1>
+            <button class="modal-close">&times;</button>
+          </div>
+          <div class="modal-body">
+            <div class="forms"></div>
+            <div class="modal-buttons">
+              <button class="plain-box-shadow modal-close finish" type="button">Finish</button>
+            </div>
+          </div>
+        </div>
+
+        <div id="results">
+          <div class="modal-header">
+            <h1 class="heading-shadow">Results!</h1>
+            <button class="modal-close">&times;</button>
+          </div>
+          <div class="modal-body">
+            <div id="result-text"></div>
+            <div class="modal-buttons">
+              <button class="plain-box-shadow modal-close finish" type="button">Finish</button>
+            </div>
+          </div>
         </div>
       </div>
     </div>

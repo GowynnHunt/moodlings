@@ -3,7 +3,7 @@
   --container-bg: #d16bc5;
   --text: #51424e;
   --border: #aaa5dc;
-  --lemon: #fbf4d7;
+  --lemon: #efdc91;
   --light-blue: #79f0ff;
   --dark-grey: #767395;
   --light-grey: #e3e0f3;
@@ -41,12 +41,16 @@ body {
   flex-direction: column;
   justify-content: space-between;
   flex: auto;
-  gap: 16px;
-  margin: 1em 2em;
+  gap: 2rem;
+  margin: 1rem 2rem;
+}
+
+.heading-shadow {
+  text-shadow: 2px 1px 1px rgba(0, 0, 0, 1);
 }
 
 .text-shadow {
-  text-shadow: 2px 1px 1px rgba(0, 0, 0, 1);
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.8);
 }
 
 .border {
