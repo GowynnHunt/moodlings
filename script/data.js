@@ -98,6 +98,8 @@ const results = {
   Charlie:
     "You're a Charlie! You are incredibly affectionate and love spending time with other people. You never meet a stranger, and everyone who meets you finds your persona endearing. People would describe you as a loveable goofball. You hate confrontation, and you love to be the center of attention. You may wander off at times, but you always come back to the people you love.",
   Odin: "You're an Odin! You're loyal beyond measure and keep a select few people in your inner circle. You try to show the world that you mean all business, but the people who know you, know that you're the biggest goofball on earth. You make most of your decisions based on your emotions. You love to challenge the rules and openly face confrontation. You have a hard time trusting others, but once you do, you love them deeply",
+  Penny:
+    "Oh dear! You poor thing, you failed to follow basic instructions and are clearly nothing but pure chaos. Your tendency to blatantly disobey the rules proves that you are not a dog, but instead a cat. You're a penny!",
 };
 
 const score = {

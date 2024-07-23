@@ -107,12 +107,17 @@ function finishHandler() {
 function displayResult(winner) {
   const text = results[winner];
 
+  const image = document.createElement("img");
+  image.setAttribute("src", `../images/${winner}.jpg`);
+
   const node = document.createElement("p");
   node.className = "answer";
   node.textContent = text;
 
-  resultNode.replaceChildren(node);
+  resultNode.replaceChildren(image, node);
   modalDisplay("results");
 }
 
-export { getResult };
+export { getResult, displayResult };
+
+displayResult("Odin");
