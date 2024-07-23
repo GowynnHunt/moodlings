@@ -108,7 +108,7 @@ function displayResult(winner) {
   const text = results[winner];
 
   const image = document.createElement("img");
-  image.setAttribute("src", `../images/${winner}.jpg`);
+  image.setAttribute("src", `images/${winner}.jpg`);
 
   const node = document.createElement("p");
   node.className = "answer";
