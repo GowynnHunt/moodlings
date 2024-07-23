@@ -119,5 +119,3 @@ function displayResult(winner) {
 }
 
 export { getResult, displayResult };
-
-displayResult("Odin");
