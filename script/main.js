@@ -58,27 +58,35 @@ function switchTheme() {
   // TODO: Build available theme detection alongside a getter for the
   // default css variables
   const themeVariables = ["bg", "bga", "fg", "headings", "accent", "accenta"];
-  const themes = ["rose-pine-dark", "rose-pine-dawn"];
+  const themes = ["rose-pine-dark", "rose-pine-dawn", "nightfox"];
 
-  let index = themes.indexOf(currentTheme);
+  let pIdx = themes.indexOf(currentTheme);
+  let nIdx = pIdx;
 
   // Rotate next theme's index
-  if (index + 1 != themes.length) {
-    index++;
+  if (pIdx + 1 != themes.length) {
+    nIdx++;
   } else {
-    index = 0;
+    nIdx = 0;
   }
 
   // Change each theme variable to new theme
   themeVariables.forEach((cssVar) => {
     root.style.setProperty(
       `--${cssVar}`,
-      `var(--${themes.at(index)}-${cssVar})`,
+      `var(--${themes.at(nIdx)}-${cssVar})`,
     );
   });
 
   // Update theme state
-  currentTheme = themes.at(index);
+  currentTheme = themes.at(nIdx);
+
+  // Updates previously selected card control link color
+  document.querySelectorAll(".card-controls a").forEach((a) => {
+    if (a.style.backgroundColor == `var(--${themes.at(pIdx)}-accent)`) {
+      a.style.backgroundColor = `var(--${themes.at(nIdx)}-accent)`;
+    }
+  });
 }
 
 document

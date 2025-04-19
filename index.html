@@ -5,14 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/main.css" />
-    <script defer src="./script/main.js"></script>
+    <script defer type="module" src="./script/main.js"></script>
+    <script defer type="module" src="./script/quiz.js"></script>
     <title>Moodlings</title>
   </head>
   <body>
     <header>
-      <h1>Moodlings</h1>
+      <div>
+        <img src="./assets/the-dogs.png" alt="" width="32px" height="32px" />
+        <h1>Moodlings</h1>
+      </div>
       <button id="theme-switcher">
-        <img src="./assets/palette.svg" width="25" height="25" />
+        <img src="./assets/palette color.png" width="25" height="25" />
       </button>
     </header>
 
@@ -40,8 +44,22 @@
           button below...
         </p>
         <div class="button-box">
-          <button>Dog Quiz!</button>
-          <button>Cat Quiz!</button>
+          <button id="DogQuizBtn">
+            <img
+              src="./assets/dog.png"
+              alt="A cute dog on a leash icon."
+              width="32px"
+              height="32px"
+            />
+          </button>
+          <button>
+            <img
+              src="./assets/cat.png"
+              alt="A cute cat sleeping icon."
+              width="32px"
+              height="32px"
+            />
+          </button>
         </div>
       </div>
     </main>
@@ -255,5 +273,25 @@
         </div>
       </div>
     </modal>
+
+    <modal id="Contact">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Contact us</h2>
+        </div>
+        <div class="modal-cards">
+          <div class="card">
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima
+              dolor in tenetur modi cupiditate quas eaque. Quaerat cumque
+              sapiente vitae sint dolorum ab pariatur. Consequuntur voluptate
+              maxime necessitatibus illum dolorum.
+            </p>
+          </div>
+        </div>
+      </div>
+    </modal>
+
+    <modal id="Quiz"></modal>
   </body>
 </html>

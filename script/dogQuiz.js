@@ -1,5 +1,8 @@
 const dogQuizQuestions = [
   {
+    name: "Dog Quiz",
+  },
+  {
     question: "Choose your ideal vacation locale.",
     answers: [
       "A warm, sunny town with lots of charm and local residents. There's Currently a festival taking place and you get to experience the small town way of life for a while.",

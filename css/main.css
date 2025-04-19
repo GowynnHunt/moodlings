@@ -16,6 +16,14 @@
   --rose-pine-dawn-accent: #907aa9;
   --rose-pine-dawn-accenta: #907aa933;
 
+  /* Nightfox Theme */
+  --nightfox-bg: #192330;
+  --nightfox-bga: #192330cc;
+  --nightfox-fg: #cdcecf;
+  --nightfox-headings: #d6d6d7;
+  --nightfox-accent: #86abdc;
+  --nightfox-accenta: #86abdccc;
+
   /* Default Colors */
   --bg: var(--rose-pine-dark-bg);
   --bga: var(--rose-pine-dark-bga);
@@ -185,11 +193,15 @@ footer {
 header {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   padding: 0 16px;
 }
 
-header h1 {
-  margin-right: auto;
+header > div {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  overflow: hidden;
 }
 
 main {
@@ -207,6 +219,11 @@ footer {
 }
 
 /* Components */
+
+footer > a {
+  text-align: center;
+}
+
 header > button {
   background-color: var(--bg);
   padding: 0.5rem;
@@ -215,6 +232,10 @@ header > button {
 
   &:hover {
     background-color: var(--accenta);
+  }
+
+  &:active {
+    background-color: var(--accent);
   }
   
   & img {
@@ -234,9 +255,18 @@ header > button {
 
 .button-box button {
   background-color: var(--bg);
+  padding: 0.5rem;
   border: 1px solid var(--accent);
-  border-radius: 2px;
+  border-radius: 50%;
   box-shadow: 4px 4px 8px 0px rgba(0, 0, 0, 0.64);
+
+  &:hover {
+    background-color: var(--accenta);
+  }
+
+  &:active {
+    background-color: var(--accent);
+  }
 }
 
 /* Modal */
@@ -272,6 +302,7 @@ modal {
 
 .modal-header {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   border-bottom: solid 1px var(--accent);
 }
@@ -293,6 +324,11 @@ modal {
   overflow-y: auto;
 }
 
+.card-controls {
+  display: flex;
+  gap: 4px;
+}
+
 .card-controls a {
   display: inline-flex;
   justify-content: center;
@@ -300,6 +336,7 @@ modal {
   width: 1.5rem;
   height: 1.5rem;
   text-decoration: none;
+  background-color: transparent;
   border: solid 1px var(--accent);
   border-radius: 50%;
   overflow: hidden;
